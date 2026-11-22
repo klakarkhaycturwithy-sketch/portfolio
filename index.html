@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>จตุรวิทย์ กล้าการขาย (ต้น) — Portfolio | nongton</title>
+  <meta name="description" content="Personal Portfolio of Jaturawit Klakarkhay (Ton / nongton) — Web Developer" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --navy-deep: #13294B;
+      --navy-mid: #1E3A5F;
+      --accent-blue: #1D4ED8;
+      --accent-blue-hover: #1E40AF;
+      --accent-soft: #EFF6FF;
+      --ink-primary: #0F172A;
+      --ink-secondary: #475569;
+      --ink-muted: #64748B;
+      --border-light: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --success-bg: #ECFDF5;
+      --success-text: #047857;
+      --success-dot: #10B981;
+      --danger-text: #DC2626;
+      --danger-soft: #FEF2F2;
+
+      --font-display: "Plus Jakarta Sans", "Noto Sans Thai", sans-serif;
+      --font-body: "Noto Sans Thai", "Plus Jakarta Sans", system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-sm: 0 4px 14px rgba(19, 41, 75, 0.06);
+      --shadow-md: 0 12px 30px rgba(19, 41, 75, 0.10);
+      --shadow-lg: 0 24px 48px rgba(15, 23, 42, 0.18);
+      --transition-fast: 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+      --transition-smooth: 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      --container-max: 1120px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-page);
+      color: var(--ink-primary);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========================
+       1. STICKY NAVBAR
+       ======================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 16px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--navy-deep);
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background-color: var(--navy-deep);
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .brand-dot {
+      color: var(--accent-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-fast), background-color var(--transition-fast);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--navy-deep);
+      background-color: var(--bg-subtle);
+      outline: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      transition: all var(--transition-fast);
+    }
+
+    .lang-btn[aria-pressed="true"] {
+      background-color: var(--navy-deep);
+      color: #FFFFFF;
+    }
+
+    .nav-print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-surface);
+      color: var(--navy-deep);
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+
+    .nav-print-btn:hover {
+      border-color: var(--navy-deep);
+      background-color: var(--bg-subtle);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-surface);
+      color: var(--navy-deep);
+    }
+
+    .mobile-nav-panel {
+      display: none;
+      border-top: 1px solid var(--border-light);
+      background-color: var(--bg-surface);
+      padding: 12px 24px 16px;
+    }
+
+    .mobile-nav-panel.open {
+      display: block;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mobile-nav-list a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+    }
+
+    .mobile-nav-list a:hover {
+      background-color: var(--bg-subtle);
+      color: var(--navy-deep);
+    }
+
+    /* ========================
+       2. HERO SECTION
+       ======================== */
+    .hero-section {
+      padding: 64px 0 56px;
+      border-bottom: 1px solid var(--border-light);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background-color: var(--success-bg);
+      color: var(--success-text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      border: 1px solid #A7F3D0;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--success-dot);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--accent-blue);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      font-weight: 800;
+      line-height: 1.18;
+      color: var(--navy-deep);
+      letter-spacing: -0.025em;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--navy-mid);
+      margin-bottom: 18px;
+    }
+
+    .hero-bio {
+      font-size: 1rem;
+      color: var(--ink-secondary);
+      max-width: 600px;
+      margin-bottom: 28px;
+      line-height: 1.75;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--radius-sm);
+      background-color: var(--navy-deep);
+      color: #FFFFFF;
+      font-size: 0.94rem;
+      font-weight: 600;
+      border: 1px solid var(--navy-deep);
+      transition: all var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-blue);
+      border-color: var(--accent-blue);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-surface);
+      color: var(--navy-deep);
+      font-size: 0.94rem;
+      font-weight: 600;
+      border: 1px solid var(--border-strong);
+      transition: all var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--navy-deep);
+      background-color: var(--bg-subtle);
+    }
+
+    .hero-meta-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hero-meta-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-meta-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+    }
+
+    /* Profile Card on Right */
+    .profile-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 24px;
+      right: 24px;
+      height: 4px;
+      background-color: var(--navy-deep);
+      border-radius: 0 0 4px 4px;
+    }
+
+    .profile-photo-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 4.4;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      margin-bottom: 16px;
+    }
+
+    .profile-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .profile-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .profile-handle {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-handle-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+
+    .profile-handle-role {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .profile-social-icons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-link-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-page);
+      color: var(--navy-deep);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-fast);
+    }
+
+    .icon-link-btn:hover {
+      border-color: var(--accent-blue);
+      background-color: var(--accent-soft);
+      color: var(--accent-blue);
+    }
+
+    /* ========================
+       3. SECTIONS SHARED
+       ======================== */
+    .section-block {
+      padding: 64px 0;
+    }
+
+    .section-block.alt-bg {
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.5vw, 1.95rem);
+      font-weight: 800;
+      color: var(--navy-deep);
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--ink-secondary);
+      margin-top: 6px;
+      max-width: 620px;
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-tab-btn {
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-surface);
+      color: var(--ink-secondary);
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+
+    .filter-tab-btn:hover {
+      border-color: var(--navy-deep);
+      color: var(--navy-deep);
+    }
+
+    .filter-tab-btn[aria-pressed="true"] {
+      background-color: var(--navy-deep);
+      border-color: var(--navy-deep);
+      color: #FFFFFF;
+    }
+
+    /* ========================
+       4. PROJECTS BENTO GRID
+       ======================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: var(--shadow-xs);
+      transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-blue);
+      box-shadow: var(--shadow-md);
+    }
+
+    .project-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .project-cat-badge {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      background-color: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .project-period {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 4px;
+    }
+
+    .project-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin-bottom: 10px;
+    }
+
+    .project-summary {
+      font-size: 0.93rem;
+      color: var(--ink-secondary);
+      line-height: 1.65;
+    }
+
+    .project-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .tech-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--navy-mid);
+      background-color: var(--bg-subtle);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .project-open-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+    }
+
+    .project-card:hover .project-open-cta {
+      text-decoration: underline;
+    }
+
+    /* ========================
+       5. SKILLS SECTION
+       ======================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .skill-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .skill-card-title {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+
+    .skill-count {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .skill-tag-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ========================
+       6. ABOUT & EDUCATION
+       ======================== */
+    .about-edu-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      gap: 28px;
+    }
+
+    .editorial-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .editorial-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 14px;
+    }
+
+    .about-paragraph {
+      font-size: 0.95rem;
+      color: var(--ink-secondary);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .facts-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 16px;
+    }
+
+    .facts-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.9rem;
+    }
+
+    .fact-label {
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    .fact-value {
+      color: var(--ink-primary);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid var(--border-strong);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--accent-blue);
+      border: 2px solid var(--bg-surface);
+    }
+
+    .timeline-period {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      margin-bottom: 4px;
+    }
+
+    .timeline-degree {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+
+    .timeline-inst {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      margin-bottom: 10px;
+    }
+
+    .timeline-bullets {
+      padding-left: 18px;
+      color: var(--ink-secondary);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* ========================
+       7. CONTACT BANNER & FOOTER
+       ======================== */
+    .contact-banner {
+      background-color: var(--navy-deep);
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-banner-copy h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .contact-banner-copy p {
+      color: #CBD5E1;
+      font-size: 0.96rem;
+      max-width: 520px;
+    }
+
+    .contact-links-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #FFFFFF;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+
+    .contact-pill-link:hover {
+      background-color: #FFFFFF;
+      color: var(--navy-deep);
+      border-color: #FFFFFF;
+    }
+
+    .site-footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+    }
+
+    /* ========================
+       8. PROJECT DETAIL MODAL
+       ======================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background-color: rgba(15, 23, 42, 0.56);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-dialog {
+      width: 100%;
+      max-width: 680px;
+      max-height: 88vh;
+      overflow-y: auto;
+      background-color: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-lg);
+      padding: 28px;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 20px;
+    }
+
+    .modal-close-btn {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-page);
+      color: var(--ink-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      transition: all var(--transition-fast);
+    }
+
+    .modal-close-btn:hover {
+      background-color: var(--navy-deep);
+      color: #FFFFFF;
+      border-color: var(--navy-deep);
+    }
+
+    .modal-section {
+      margin-bottom: 18px;
+    }
+
+    .modal-section-label {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .modal-section p {
+      font-size: 0.94rem;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+    }
+
+    .modal-actions-list {
+      padding-left: 18px;
+      color: var(--ink-secondary);
+      font-size: 0.93rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .modal-links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* ========================
+       9. RIGHT-EDGE YOUTUBE MUSIC DRAWER
+       ======================== */
+    .music-drawer {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translate(calc(100% - 34px), -50%);
+      z-index: 140;
+      display: flex;
+      align-items: stretch;
+      transition: transform var(--transition-smooth);
+    }
+
+    .music-drawer:hover,
+    .music-drawer:focus-within,
+    .music-drawer.pinned {
+      transform: translate(0, -50%);
+    }
+
+    .music-drawer-tab {
+      width: 34px;
+      background-color: var(--navy-deep);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px 0 0 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 0;
+      box-shadow: -4px 4px 16px rgba(19, 41, 75, 0.16);
+    }
+
+    .music-tab-label {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    .music-drawer-panel {
+      width: 332px;
+      max-height: 82vh;
+      overflow-y: auto;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-right: none;
+      border-radius: 0 0 0 12px;
+      box-shadow: var(--shadow-lg);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .music-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .music-panel-title {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+
+    .music-pin-btn {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-page);
+      color: var(--ink-secondary);
+    }
+
+    .music-pin-btn[aria-pressed="true"] {
+      background-color: var(--navy-deep);
+      border-color: var(--navy-deep);
+      color: #FFFFFF;
+    }
+
+    .yt-frame-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background-color: #0F172A;
+      border: 1px solid var(--border-light);
+    }
+
+    .yt-frame-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .music-now-playing {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy-deep);
+      background-color: var(--accent-soft);
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent-blue);
+    }
+
+    .song-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .song-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 6px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-page);
+    }
+
+    .song-row.active {
+      border-color: var(--accent-blue);
+      background-color: var(--accent-soft);
+    }
+
+    .song-play-btn {
+      flex: 1;
+      text-align: left;
+      background: transparent;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .song-del-btn {
+      border: none;
+      background: transparent;
+      color: var(--ink-muted);
+      font-size: 0.78rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .song-del-btn:hover {
+      color: var(--danger-text);
+      background-color: var(--danger-soft);
+    }
+
+    .add-song-form {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .add-song-form input {
+      width: 100%;
+      padding: 7px 10px;
+      font-size: 0.8rem;
+      font-family: inherit;
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+    }
+
+    .add-song-form input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+    }
+
+    .add-song-btn {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: var(--navy-deep);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .add-song-btn:hover {
+      background-color: var(--accent-blue);
+    }
+
+    .add-song-msg {
+      font-size: 0.76rem;
+      color: var(--danger-text);
+      min-height: 16px;
+    }
+
+    /* ========================
+       10. RESPONSIVE & PRINT
+       ======================== */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-edu-grid {
+        grid-template-columns: 1fr;
+      }
+      .profile-card {
+        max-width: 360px;
+      }
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links,
+      .nav-print-btn {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+      .hero-meta-strip {
+        grid-template-columns: 1fr;
+      }
+      .contact-banner {
+        padding: 28px 22px;
+      }
+      .music-drawer-panel {
+        width: 288px;
+      }
+    }
+
+    @media print {
+      body {
+        background-color: #FFFFFF !important;
+        font-size: 10.5pt;
+      }
+      .navbar,
+      .music-drawer,
+      .modal-backdrop,
+      .filter-tabs,
+      .hero-cta-row,
+      .project-open-cta {
+        display: none !important;
+      }
+      .section-block,
+      .hero-section {
+        padding: 20px 0 !important;
+        border: none !important;
+      }
+      .project-card,
+      .skill-card,
+      .editorial-card,
+      .profile-card {
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+      .contact-banner {
+        background-color: #FFFFFF !important;
+        color: #0F172A !important;
+        border: 1px solid #CBD5E1 !important;
+        box-shadow: none !important;
+      }
+      .contact-banner-copy p,
+      .contact-pill-link {
+        color: #0F172A !important;
+        border-color: #CBD5E1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sticky Top Navigation -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#top" class="brand-link" aria-label="nongton home">
+        <span class="brand-mark">nt</span>
+        <span>nongton<span class="brand-dot">.</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="desktop-nav-links"></ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Language Switcher">
+          <button type="button" class="lang-btn" id="btn-lang-th" aria-pressed="true">TH</button>
+          <button type="button" class="lang-btn" id="btn-lang-en" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" class="nav-print-btn" id="btn-print-page">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span id="print-btn-label">พิมพ์ / PDF</span>
+        </button>
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-expanded="false" aria-label="Toggle menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-panel" id="mobile-nav-panel">
+      <ul class="mobile-nav-list" id="mobile-nav-links"></ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 1. Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div>
+          <div class="status-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="hero-status"></span>
+          </div>
+          <p class="hero-eyebrow" id="hero-eyebrow"></p>
+          <h1 class="hero-title" id="hero-name"></h1>
+          <p class="hero-subtitle" id="hero-role"></p>
+          <p class="hero-bio" id="hero-bio"></p>
+
+          <div class="hero-cta-row">
+            <a href="#projects" class="btn-primary" id="hero-cta-projects"></a>
+            <a href="#contact" class="btn-secondary" id="hero-cta-contact"></a>
+          </div>
+
+          <div class="hero-meta-strip" id="hero-meta-strip"></div>
+        </div>
+
+        <aside class="profile-card" aria-label="Profile card">
+          <div class="profile-photo-wrap">
+            <img id="profile-photo" src="./assets/profile.jpg" alt="จตุรวิทย์ กล้าการขาย" />
+          </div>
+          <div class="profile-card-footer">
+            <div class="profile-handle">
+              <span class="profile-handle-name" id="card-handle-name"></span>
+              <span class="profile-handle-role" id="card-handle-role"></span>
+            </div>
+            <div class="profile-social-icons" id="card-social-icons"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 2. Projects & Experience Section -->
+    <section class="section-block" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker" id="projects-kicker"></span>
+            <h2 class="section-title" id="projects-title"></h2>
+            <p class="section-desc" id="projects-desc"></p>
+          </div>
+          <div class="filter-tabs" id="project-filter-tabs" role="group"></div>
+        </div>
+
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- 3. Skills Section -->
+    <section class="section-block alt-bg" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker" id="skills-kicker"></span>
+            <h2 class="section-title" id="skills-title"></h2>
+            <p class="section-desc" id="skills-desc"></p>
+          </div>
+          <div class="filter-tabs" id="skill-filter-tabs" role="group"></div>
+        </div>
+
+        <div class="skills-grid" id="skills-grid"></div>
+      </div>
+    </section>
+
+    <!-- 4. About & Education Section -->
+    <section class="section-block" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker" id="about-kicker"></span>
+            <h2 class="section-title" id="about-title"></h2>
+          </div>
+        </div>
+
+        <div class="about-edu-grid">
+          <article class="editorial-card">
+            <h3 id="about-card-heading"></h3>
+            <p class="about-paragraph" id="about-card-text"></p>
+            <ul class="facts-list" id="about-facts-list"></ul>
+          </article>
+
+          <article class="editorial-card" id="education">
+            <h3 id="edu-card-heading"></h3>
+            <div class="timeline-list" id="edu-timeline-list"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Contact Section -->
+    <section class="section-block" id="contact" style="padding-top: 16px;">
+      <div class="container">
+        <div class="contact-banner">
+          <div class="contact-banner-copy">
+            <h2 id="contact-title"></h2>
+            <p id="contact-desc"></p>
+          </div>
+          <div class="contact-links-grid" id="contact-links-grid"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p id="footer-copy"></p>
+    </div>
+  </footer>
+
+  <!-- Accessible Project Detail Modal -->
+  <div class="modal-backdrop" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <div class="project-card-top" style="margin-bottom: 6px;">
+            <span class="project-cat-badge" id="modal-project-cat"></span>
+            <span class="project-period" id="modal-project-period"></span>
+          </div>
+          <h3 class="project-title" id="modal-project-title" style="font-size: 1.3rem;"></h3>
+          <p class="project-role" id="modal-project-role" style="margin-bottom: 0;"></p>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-label" id="modal-lbl-problem"></div>
+        <p id="modal-project-problem"></p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-label" id="modal-lbl-actions"></div>
+        <ul class="modal-actions-list" id="modal-project-actions"></ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-label" id="modal-lbl-outcome"></div>
+        <p id="modal-project-outcome"></p>
+      </div>
+
+      <div class="modal-section" style="margin-bottom: 0;">
+        <div class="modal-section-label" id="modal-lbl-tech"></div>
+        <div class="tech-pill-row" id="modal-project-tech"></div>
+      </div>
+
+      <div class="modal-links-row" id="modal-project-links"></div>
+    </div>
+  </div>
+
+  <!-- Right-Edge Hover Slide-Out YouTube Music Drawer -->
+  <aside class="music-drawer" id="music-drawer" aria-label="YouTube Music Player">
+    <button type="button" class="music-drawer-tab" id="music-drawer-tab" aria-label="Toggle music drawer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 18V5l12-2v13"></path>
+        <circle cx="6" cy="18" r="3"></circle>
+        <circle cx="18" cy="16" r="3"></circle>
+      </svg>
+      <span class="music-tab-label">MUSIC</span>
+    </button>
+
+    <div class="music-drawer-panel">
+      <div class="music-panel-head">
+        <span class="music-panel-title" id="music-panel-title">เครื่องเล่นเพลง YouTube</span>
+        <button type="button" class="music-pin-btn" id="music-pin-btn" aria-pressed="false">ปักหมุด</button>
+      </div>
+
+      <div class="yt-frame-wrap">
+        <iframe id="yt-player-iframe" title="YouTube music player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <div class="music-now-playing" id="music-now-playing"></div>
+
+      <ul class="song-list" id="song-list"></ul>
+
+      <form class="add-song-form" id="add-song-form">
+        <input type="text" id="song-title-input" placeholder="ชื่อเพลง (ไม่บังคับ)" autocomplete="off" />
+        <input type="text" id="song-url-input" placeholder="วางลิงก์ YouTube หรือ Video ID" required autocomplete="off" />
+        <button type="submit" class="add-song-btn" id="add-song-btn">เพิ่มเพลงเข้าเพลย์ลิสต์</button>
+        <div class="add-song-msg" id="add-song-msg" aria-live="polite"></div>
+      </form>
+    </div>
+  </aside>
+
+  <script>
+    /* =========================================================================
+       PORTFOLIO_DATA — ศูนย์กลางข้อมูลทั้งหมดของเว็บ Portfolio (แก้ข้อมูลตรงนี้ที่เดียว)
+       รองรับ 2 ภาษา (th / en) โดยอัตโนมัติ
+       ========================================================================= */
+    const PORTFOLIO_DATA = {
+      /* 1. ข้อมูลโปรไฟล์หลัก (Hero & Metadata) */
+      profile: {
+        photo: "./assets/profile.jpg",
+        handle: "@nongton",
+        copyrightYear: 2026,
+        th: {
+          pageTitle: "จตุรวิทย์ กล้าการขาย (ต้น) — Portfolio | nongton",
+          eyebrow: "PERSONAL PORTFOLIO · NONGTON",
+          fullName: "จตุรวิทย์ กล้าการขาย",
+          nickname: "ต้น",
+          role: "Web Developer · นักพัฒนาเว็บไซต์",
+          status: "พร้อมเริ่มงาน / รับโปรเจกต์",
+          bio: "สวัสดีครับ ผม \"ต้น\" จบการศึกษาระดับ ปวส. จากวิทยาลัยบริหารธุรกิจและการท่องเที่ยวกรุงเทพ มีความหลงใหลในการพัฒนาเว็บไซต์และการได้ลองทำสิ่งใหม่ๆ อยู่เสมอ ปัจจุบันใช้ HTML5, CSS3 และ JavaScript (ES6+) เป็นหลัก และกำลังต่อยอดด้าน Python กับพื้นฐาน AI",
+          ctaProjects: "ดูผลงานและประสบการณ์",
+          ctaContact: "ติดต่อฉัน",
+          meta: [
+            { label: "การศึกษา", value: "ปวส. วบท." },
+            { label: "ความสนใจพิเศษ", value: "ได้ทำอะไรในสิ่งใหม่ๆ" },
+            { label: "งานอดิเรก", value: "เล่นเกม ฟังเพลง" }
+          ]
+        },
+        en: {
+          pageTitle: "Jaturawit Klakarkhay (Ton) — Portfolio | nongton",
+          eyebrow: "PERSONAL PORTFOLIO · NONGTON",
+          fullName: "Jaturawit Klakarkhay",
+          nickname: "Ton",
+          role: "Web Developer",
+          status: "Open for Work / Projects",
+          bio: "Hi, I'm Ton — a Higher Vocational Diploma graduate from Bangkok Business Administration and Tourism College. I enjoy building clean web experiences and constantly exploring new things, focusing on HTML5, CSS3, and JavaScript (ES6+) while expanding into Python and AI fundamentals.",
+          ctaProjects: "Explore Projects",
+          ctaContact: "Get in Touch",
+          meta: [
+            { label: "Education", value: "Higher Vocational Diploma" },
+            { label: "Special Interest", value: "Trying New Things" },
+            { label: "Hobbies", value: "Gaming & Listening to Music" }
+          ]
+        }
+      },
+
+      /* 2. ช่องทางการติดต่อ (เพิ่มอีเมลหรือเบอร์โทรต่อท้ายได้) */
+      contacts: [
+        {
+          type: "instagram",
+          label: "Instagram",
+          display: "@_180.ton",
+          href: "https://www.instagram.com/_180.ton/"
+        },
+        {
+          type: "github",
+          label: "GitHub",
+          display: "klakarkhaycturwithy-sketch",
+          href: "https://github.com/klakarkhaycturwithy-sketch"
+        }
+        /* ตัวอย่างเพิ่มอีเมลหรือเบอร์โทร:
+        ,{ type: "email", label: "Email", display: "your.email@example.com", href: "mailto:your.email@example.com" }
+        ,{ type: "phone", label: "Phone", display: "08X-XXX-XXXX", href: "tel:08XXXXXXXX" }
+        */
+      ],
+
+      /* 3. หมวดผลงานและประสบการณ์ (เติมข้อมูลจริงของคุณในช่อง [...] ได้เลย) */
+      projectFilters: [
+        { key: "all", th: "ทั้งหมด", en: "All" },
+        { key: "web", th: "เว็บไซต์", en: "Websites" },
+        { key: "project", th: "โปรเจกต์ / กิจกรรม", en: "Projects / Activities" }
+      ],
+      projects: [
+        {
+          id: "proj-1",
+          category: "web",
+          period: "[ปี เช่น 2026]",
+          tech: ["HTML5", "CSS3", "JavaScript (ES6+)", "GitHub Pages"],
+          links: [
+            /* เปลี่ยน href เป็นลิงก์จริงเมื่อพร้อม หรือเว้นว่างไว้ */
+            { labelTh: "ดูตัวอย่างเว็บไซต์ (ใส่ลิงก์ภายหลัง)", labelEn: "Live Demo (Add URL)", href: "" },
+            { labelTh: "ดูโค้ดบน GitHub (ใส่ลิงก์ภายหลัง)", labelEn: "Source Code (Add URL)", href: "" }
+          ],
+          th: {
+            categoryLabel: "เว็บไซต์",
+            title: "[ชื่อผลงาน / เว็บไซต์ที่ 1 ของคุณ]",
+            role: "[บทบาทของคุณ เช่น ผู้พัฒนาหน้าเว็บ]",
+            summary: "[สรุปสั้นๆ 1-2 บรรทัดว่าผลงานนี้คืออะไร และสร้างขึ้นเพื่อเป้าหมายใด]",
+            problem: "[อธิบายโจทย์หรือปัญหาที่ต้องการแก้ไขในโปรเจกต์นี้]",
+            actions: [
+              "[สิ่งที่คุณลงมือทำข้อที่ 1 เช่น ออกแบบโครงสร้างหน้าเว็บและจัดเลย์เอาต์]",
+              "[สิ่งที่คุณลงมือทำข้อที่ 2 เช่น เขียน JavaScript เพิ่มการโต้ตอบและนำไปเผยแพร่]"
+            ],
+            outcome: "[ผลลัพธ์ที่ได้ หรือสิ่งที่คุณได้เรียนรู้จากผลงานชิ้นนี้]"
+          },
+          en: {
+            categoryLabel: "Website",
+            title: "[Your Project / Website #1 Title]",
+            role: "[Your Role, e.g., Frontend Developer]",
+            summary: "[Short 1-2 line summary explaining what this project is and its main goal.]",
+            problem: "[Describe the challenge or problem this project aims to solve.]",
+            actions: [
+              "[Action 1: e.g., Designed the page structure and responsive layout]",
+              "[Action 2: e.g., Implemented interactive features with JavaScript and deployed]"
+            ],
+            outcome: "[Key outcome or main takeaway from building this project.]"
+          }
+        },
+        {
+          id: "proj-2",
+          category: "project",
+          period: "[ปี เช่น 2026]",
+          tech: ["Python", "AI Tools", "Git"],
+          links: [
+            { labelTh: "ดูโค้ดบน GitHub (ใส่ลิงก์ภายหลัง)", labelEn: "Source Code (Add URL)", href: "" }
+          ],
+          th: {
+            categoryLabel: "โปรเจกต์ / กิจกรรม",
+            title: "[ชื่อโปรเจกต์ / กิจกรรมที่ 2 ของคุณ]",
+            role: "[บทบาทของคุณ เช่น ผู้ทดลองพัฒนา / สมาชิกทีม]",
+            summary: "[สรุปสั้นๆ 1-2 บรรทัดเกี่ยวกับโปรเจกต์ทดลอง งานเรียน หรือกิจกรรมที่เคยทำ]",
+            problem: "[อธิบายโจทย์หรือสิ่งที่อยากทดลองเรียนรู้]",
+            actions: [
+              "[สิ่งที่คุณลงมือทำข้อที่ 1]",
+              "[สิ่งที่คุณลงมือทำข้อที่ 2]"
+            ],
+            outcome: "[ผลลัพธ์ที่ได้ หรือทักษะที่พัฒนาขึ้นจากงานนี้]"
+          },
+          en: {
+            categoryLabel: "Project / Activity",
+            title: "[Your Project / Activity #2 Title]",
+            role: "[Your Role, e.g., Builder / Team Member]",
+            summary: "[Short 1-2 line summary of a learning project, coursework, or activity.]",
+            problem: "[Describe the problem or idea you wanted to explore.]",
+            actions: [
+              "[Action 1 you performed]",
+              "[Action 2 you performed]"
+            ],
+            outcome: "[Outcome or skills gained from this work.]"
+          }
+        }
+      ],
+
+      /* 4. ทักษะความสามารถ (แบ่งหมวดหมู่ชัดเจน) */
+      skills: [
+        {
+          key: "frontend",
+          thTitle: "พัฒนาหน้าเว็บ (Frontend)",
+          enTitle: "Frontend Development",
+          items: [
+            { th: "HTML5", en: "HTML5" },
+            { th: "CSS3", en: "CSS3" },
+            { th: "JavaScript (ES6+)", en: "JavaScript (ES6+)" }
+          ]
+        },
+        {
+          key: "exploring",
+          thTitle: "กำลังต่อยอด (Exploring)",
+          enTitle: "Currently Exploring",
+          items: [
+            { th: "Python", en: "Python" },
+            { th: "พื้นฐาน AI", en: "AI Fundamentals" }
+          ]
+        },
+        {
+          key: "deploy",
+          thTitle: "เผยแพร่และเครื่องมือ (Deploy & Tools)",
+          enTitle: "Deploy & Tools",
+          items: [
+            { th: "GitHub Pages", en: "GitHub Pages" },
+            { th: "Netlify", en: "Netlify" },
+            { th: "Vercel", en: "Vercel" },
+            { th: "Git", en: "Git" }
+          ]
+        }
+      ],
+
+      /* 5. เกี่ยวกับฉันและประวัติการศึกษา */
+      about: {
+        th: {
+          text: "ผมเริ่มต้นจากการชอบทดลองทำสิ่งใหม่ๆ และสนใจการสร้างเว็บไซต์ที่ใช้งานง่าย สะอาดตา และแก้ปัญหาได้จริง แม้จะอยู่ในช่วงเก็บเกี่ยวประสบการณ์ แต่ผมให้ความสำคัญกับความละเอียดในการทำงาน การค้นคว้าหาคำตอบอย่างเป็นระบบ และการลงมือทำจริงจนเห็นผลลัพธ์",
+          facts: [
+            { label: "ชื่อ - นามสกุล", value: "จตุรวิทย์ กล้าการขาย (ต้น)" },
+            { label: "ความสนใจพิเศษ", value: "ได้ทำอะไรในสิ่งใหม่ๆ" },
+            { label: "งานอดิเรก", value: "เล่นเกม ฟังเพลง" }
+          ]
+        },
+        en: {
+          text: "I started with curiosity for trying new things and building clean, practical websites. While actively growing my experience, I focus on careful execution, structured research, and hands-on building to deliver real results.",
+          facts: [
+            { label: "Full Name", value: "Jaturawit Klakarkhay (Ton)" },
+            { label: "Special Interest", value: "Trying New Things" },
+            { label: "Hobbies", value: "Gaming & Listening to Music" }
+          ]
+        }
+      },
+
+      education: [
+        {
+          th: {
+            period: "ระดับ ปวส.",
+            degree: "ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)",
+            institution: "วิทยาลัยบริหารธุรกิจและการท่องเที่ยวกรุงเทพ",
+            bullets: [
+              "[ระบุสาขาวิชา หรือวิชาเด่นที่คุณต้องการเพิ่มเติม]",
+              "ฝึกฝนการพัฒนาหน้าเว็บไซต์ด้วย HTML5, CSS3, JavaScript และการใช้เครื่องมือเผยแพร่เว็บไซต์จริง"
+            ]
+          },
+          en: {
+            period: "Higher Vocational Diploma",
+            degree: "Higher Vocational Diploma (Por Wor Sor)",
+            institution: "Bangkok Business Administration and Tourism College",
+            bullets: [
+              "[Add your major or notable coursework here]",
+              "Practiced web development with HTML5, CSS3, JavaScript, and modern static hosting tools"
+            ]
+          }
+        }
+      ],
+
+      /* 6. ข้อความ UI 2 ภาษา */
+      ui: {
+        th: {
+          nav: [
+            { href: "#projects", label: "ผลงาน" },
+            { href: "#skills", label: "ทักษะ" },
+            { href: "#about", label: "เกี่ยวกับฉัน" },
+            { href: "#education", label: "การศึกษา" },
+            { href: "#contact", label: "ติดต่อ" }
+          ],
+          printBtn: "พิมพ์ / PDF",
+          projectsKicker: "PORTFOLIO & EXPERIENCE",
+          projectsTitle: "ผลงานและประสบการณ์",
+          projectsDesc: "เลือกกรองตามหมวดหมู่ หรือคลิกที่การ์ดเพื่อดูรายละเอียดโจทย์ แนวทางแก้ไข และเครื่องมือที่ใช้",
+          openDetail: "ดูรายละเอียด →",
+          skillsKicker: "TECHNICAL STACK",
+          skillsTitle: "ทักษะและเครื่องมือ",
+          skillsDesc: "เครื่องมือและเทคโนโลยีที่ใช้ในการพัฒนาเว็บไซต์และกำลังศึกษาเพิ่มเติม",
+          skillFilterAll: "ทั้งหมด",
+          aboutKicker: "BACKGROUND",
+          aboutTitle: "เกี่ยวกับฉันและการศึกษา",
+          aboutCardHeading: "แนวทางการทำงานและข้อมูลส่วนตัว",
+          eduCardHeading: "ประวัติการศึกษา",
+          contactTitle: "พร้อมพูดคุยและร่วมงานครับ",
+          contactDesc: "หากสนใจร่วมงาน โปรเจกต์เว็บไซต์ หรืออยากแลกเปลี่ยนความรู้ สามารถติดต่อได้ผ่านช่องทางด้านข้างนี้เลยครับ",
+          modalProblem: "โจทย์ / ปัญหา (Problem)",
+          modalActions: "สิ่งที่ลงมือทำ (Actions)",
+          modalOutcome: "ผลลัพธ์ / สิ่งที่ได้เรียนรู้ (Outcome)",
+          modalTech: "เทคโนโลยีที่ใช้ (Tech Stack)",
+          modalLinkPending: "ยังไม่ได้ใส่ลิงก์ (แก้ไขได้ใน PORTFOLIO_DATA)",
+          musicTitle: "เครื่องเล่นเพลง YouTube",
+          musicPin: "ปักหมุด",
+          musicUnpin: "เลิกปักหมุด",
+          musicTitlePlaceholder: "ชื่อเพลง (ไม่บังคับ)",
+          musicUrlPlaceholder: "วางลิงก์ YouTube หรือ Video ID",
+          musicAddBtn: "เพิ่มเพลงเข้าเพลย์ลิสต์",
+          musicNowPrefix: "กำลังเล่น: ",
+          musicErrInvalid: "กรุณาวางลิงก์ YouTube หรือ Video ID 11 ตัวอักษรให้ถูกต้อง",
+          musicErrMinOne: "ต้องมีเพลงอย่างน้อย 1 เพลงในเพลย์ลิสต์",
+          footerCopy: "© 2026 จตุรวิทย์ กล้าการขาย (nongton) · ออกแบบและพัฒนาเป็น Portfolio ส่วนตัว"
+        },
+        en: {
+          nav: [
+            { href: "#projects", label: "Projects" },
+            { href: "#skills", label: "Skills" },
+            { href: "#about", label: "About" },
+            { href: "#education", label: "Education" },
+            { href: "#contact", label: "Contact" }
+          ],
+          printBtn: "Print / PDF",
+          projectsKicker: "PORTFOLIO & EXPERIENCE",
+          projectsTitle: "Projects & Experience",
+          projectsDesc: "Filter by category or click any card to inspect the problem, actions, outcome, and tech stack.",
+          openDetail: "View Details →",
+          skillsKicker: "TECHNICAL STACK",
+          skillsTitle: "Skills & Tools",
+          skillsDesc: "Core technologies I build with and areas I am currently expanding.",
+          skillFilterAll: "All",
+          aboutKicker: "BACKGROUND",
+          aboutTitle: "About & Education",
+          aboutCardHeading: "About Me & Personal Info",
+          eduCardHeading: "Education",
+          contactTitle: "Let's Connect",
+          contactDesc: "Open for web development opportunities, learning collaborations, or project inquiries via the channels below.",
+          modalProblem: "Problem / Goal",
+          modalActions: "Actions Taken",
+          modalOutcome: "Outcome / Takeaways",
+          modalTech: "Tech Stack",
+          modalLinkPending: "URL not set yet (edit in PORTFOLIO_DATA)",
+          musicTitle: "YouTube Music Player",
+          musicPin: "Pin",
+          musicUnpin: "Unpin",
+          musicTitlePlaceholder: "Song title (optional)",
+          musicUrlPlaceholder: "Paste YouTube URL or Video ID",
+          musicAddBtn: "Add to Playlist",
+          musicNowPrefix: "Now Playing: ",
+          musicErrInvalid: "Please enter a valid YouTube link or 11-character Video ID.",
+          musicErrMinOne: "Keep at least 1 song in the playlist.",
+          footerCopy: "© 2026 Jaturawit Klakarkhay (nongton) · Personal Developer Portfolio"
+        }
+      }
+    };
+
+    /* ========================
+       APPLICATION STATE
+       ======================== */
+    const LANG_STORAGE_KEY = "nongton_portfolio_lang";
+    const MUSIC_STORAGE_KEY = "nongton_yt_songs";
+    const DEFAULT_SONGS = [
+      {
+        title: "MaxMillor - มันก็เป็นแค่ครั้งหนึ่ง (ft.SURIYA MQT)",
+        youtubeId: "fJSMEnfsS3w"
+      }
+    ];
+
+    let currentLang = localStorage.getItem(LANG_STORAGE_KEY) === "en" ? "en" : "th";
+    let activeProjectFilter = "all";
+    let activeSkillFilter = "all";
+    let openModalProjectId = null;
+
+    /* ========================
+       SVG ICONS HELPER
+       ======================== */
+    function getContactIcon(type) {
+      if (type === "instagram") {
+        return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`;
+      }
+      if (type === "github") {
+        return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`;
+      }
+      if (type === "email") {
+        return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`;
+      }
+      return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>`;
+    }
+
+    /* ========================
+       RENDER PORTFOLIO SECTIONS
+       ======================== */
+    function renderNavigation() {
+      const ui = PORTFOLIO_DATA.ui[currentLang];
+      const navMarkup = ui.nav.map(entry => `<li><a href="${entry.href}">${entry.label}</a></li>`).join("");
+      document.getElementById("desktop-nav-links").innerHTML = navMarkup;
+      document.getElementById("mobile-nav-links").innerHTML = navMarkup;
+      document.getElementById("print-btn-label").textContent = ui.printBtn;
+
+      document.getElementById("mobile-nav-links").querySelectorAll("a").forEach(anchor => {
+        anchor.addEventListener("click", () => {
+          document.getElementById("mobile-nav-panel").classList.remove("open");
+          document.getElementById("mobile-menu-btn").setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    function renderHero() {
+      const profile = PORTFOLIO_DATA.profile;
+      const localized = profile[currentLang];
+
+      document.documentElement.lang = currentLang;
+      document.title = localized.pageTitle;
+
+      document.getElementById("hero-status").textContent = localized.status;
+      document.getElementById("hero-eyebrow").textContent = localized.eyebrow;
+      document.getElementById("hero-name").textContent = localized.fullName;
+      document.getElementById("hero-role").textContent = `${localized.nickname} · ${localized.role}`;
+      document.getElementById("hero-bio").textContent = localized.bio;
+      document.getElementById("hero-cta-projects").textContent = localized.ctaProjects;
+      document.getElementById("hero-cta-contact").textContent = localized.ctaContact;
+
+      document.getElementById("hero-meta-strip").innerHTML = localized.meta.map(entry => `
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">${entry.label}</span>
+          <span class="hero-meta-value">${entry.value}</span>
+        </div>
+      `).join("");
+
+      const photoEl = document.getElementById("profile-photo");
+      photoEl.src = profile.photo;
+      photoEl.alt = localized.fullName;
+
+      document.getElementById("card-handle-name").textContent = localized.fullName;
+      document.getElementById("card-handle-role").textContent = profile.handle;
+
+      document.getElementById("card-social-icons").innerHTML = PORTFOLIO_DATA.contacts.map(contact => `
+        <a href="${contact.href}" class="icon-link-btn" target="_blank" rel="noopener noreferrer" aria-label="${contact.label}" title="${contact.label}: ${contact.display}">
+          ${getContactIcon(contact.type)}
+        </a>
+      `).join("");
+    }
+
+    function renderProjects() {
+      const ui = PORTFOLIO_DATA.ui[currentLang];
+      document.getElementById("projects-kicker").textContent = ui.projectsKicker;
+      document.getElementById("projects-title").textContent = ui.projectsTitle;
+      document.getElementById("projects-desc").textContent = ui.projectsDesc;
+
+      const tabsEl = document.getElementById("project-filter-tabs");
+      tabsEl.innerHTML = PORTFOLIO_DATA.projectFilters.map(filter => `
+        <button type="button" class="filter-tab-btn" aria-pressed="${activeProjectFilter === filter.key}" data-project-filter="${filter.key}">
+          ${filter[currentLang]}
+        </button>
+      `).join("");
+
+      tabsEl.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeProjectFilter = btn.dataset.projectFilter;
+          renderProjects();
+        });
+      });
+
+      const visibleProjects = activeProjectFilter === "all"
+        ? PORTFOLIO_DATA.projects
+        : PORTFOLIO_DATA.projects.filter(p => p.category === activeProjectFilter);
+
+      const gridEl = document.getElementById("projects-grid");
+      gridEl.innerHTML = visibleProjects.map(project => {
+        const text = project[currentLang];
+        return `
+          <article class="project-card" tabindex="0" role="button" data-project-id="${project.id}">
+            <div>
+              <div class="project-card-top">
+                <span class="project-cat-badge">${text.categoryLabel}</span>
+                <span class="project-period">${project.period}</span>
+              </div>
+              <h3 class="project-title">${text.title}</h3>
+              <p class="project-role">${text.role}</p>
+              <p class="project-summary">${text.summary}</p>
+            </div>
+            <div class="project-footer">
+              <div class="tech-pill-row">
+                ${project.tech.map(tag => `<span class="tech-pill">${tag}</span>`).join("")}
+              </div>
+              <span class="project-open-cta">${ui.openDetail}</span>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      gridEl.querySelectorAll(".project-card").forEach(card => {
+        const triggerOpen = () => openProjectModal(card.dataset.projectId);
+        card.addEventListener("click", triggerOpen);
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            triggerOpen();
+          }
+        });
+      });
+    }
+
+    function renderSkills() {
+      const ui = PORTFOLIO_DATA.ui[currentLang];
+      document.getElementById("skills-kicker").textContent = ui.skillsKicker;
+      document.getElementById("skills-title").textContent = ui.skillsTitle;
+      document.getElementById("skills-desc").textContent = ui.skillsDesc;
+
+      const tabs = [
+        { key: "all", label: ui.skillFilterAll },
+        ...PORTFOLIO_DATA.skills.map(group => ({
+          key: group.key,
+          label: currentLang === "th" ? group.thTitle.split(" (")[0] : group.enTitle
+        }))
+      ];
+
+      const tabsEl = document.getElementById("skill-filter-tabs");
+      tabsEl.innerHTML = tabs.map(tab => `
+        <button type="button" class="filter-tab-btn" aria-pressed="${activeSkillFilter === tab.key}" data-skill-filter="${tab.key}">
+          ${tab.label}
+        </button>
+      `).join("");
+
+      tabsEl.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeSkillFilter = btn.dataset.skillFilter;
+          renderSkills();
+        });
+      });
+
+      const visibleGroups = activeSkillFilter === "all"
+        ? PORTFOLIO_DATA.skills
+        : PORTFOLIO_DATA.skills.filter(g => g.key === activeSkillFilter);
+
+      document.getElementById("skills-grid").innerHTML = visibleGroups.map(group => `
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <h3 class="skill-card-title">${currentLang === "th" ? group.thTitle : group.enTitle}</h3>
+            <span class="skill-count">${group.items.length}</span>
+          </div>
+          <ul class="skill-tag-list">
+            ${group.items.map(skill => `<li class="skill-tag">${skill[currentLang]}</li>`).join("")}
+          </ul>
+        </div>
+      `).join("");
+    }
+
+    function renderAboutAndEducation() {
+      const ui = PORTFOLIO_DATA.ui[currentLang];
+      const aboutData = PORTFOLIO_DATA.about[currentLang];
+
+      document.getElementById("about-kicker").textContent = ui.aboutKicker;
+      document.getElementById("about-title").textContent = ui.aboutTitle;
+      document.getElementById("about-card-heading").textContent = ui.aboutCardHeading;
+      document.getElementById("about-card-text").textContent = aboutData.text;
+      document.getElementById("about-facts-list").innerHTML = aboutData.facts.map(fact => `
+        <li>
+          <span class="fact-label">${fact.label}</span>
+          <span class="fact-value">${fact.value}</span>
+        </li>
+      `).join("");
+
+      document.getElementById("edu-card-heading").textContent = ui.eduCardHeading;
+      document.getElementById("edu-timeline-list").innerHTML = PORTFOLIO_DATA.education.map(entry => {
+        const edu = entry[currentLang];
+        return `
+          <div class="timeline-item">
+            <div class="timeline-period">${edu.period}</div>
+            <div class="timeline-degree">${edu.degree}</div>
+            <div class="timeline-inst">${edu.institution}</div>
+            <ul class="timeline-bullets">
+              ${edu.bullets.map(bullet => `<li>${bullet}</li>`).join("")}
+            </ul>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderContactAndFooter() {
+      const ui = PORTFOLIO_DATA.ui[currentLang];
+      document.getElementById("contact-title").textContent = ui.contactTitle;
+      document.getElementById("contact-desc").textContent = ui.contactDesc;
+
+      document.getElementById("contact-links-grid").innerHTML = PORTFOLIO_DATA.contacts.map(contact => `
+        <a href="${contact.href}" class="contact-pill-link" target="_blank" rel="noopener noreferrer">
+          ${getContactIcon(contact.type)}
+          <span>${contact.label}: ${contact.display}</span>
+        </a>
+      `).join("");
+
+      document.getElementById("footer-copy").textContent = ui.footerCopy;
+    }
+
+    /* ========================
+       PROJECT DETAIL MODAL
+       ======================== */
+    const modalEl = document.getElementById("project-modal");
+
+    function openProjectModal(projectId) {
+      const project = PORTFOLIO_DATA.projects.find(p => p.id === projectId);
+      if (!project) return;
+      openModalProjectId = projectId;
+
+      const ui = PORTFOLIO_DATA.ui[currentLang];
+      const text = project[currentLang];
+
+      document.getElementById("modal-project-cat").textContent = text.categoryLabel;
+      document.getElementById("modal-project-period").textContent = project.period;
+      document.getElementById("modal-project-title").textContent = text.title;
+      document.getElementById("modal-project-role").textContent = text.role;
+
+      document.getElementById("modal-lbl-problem").textContent = ui.modalProblem;
+      document.getElementById("modal-project-problem").textContent = text.problem;
+
+      document.getElementById("modal-lbl-actions").textContent = ui.modalActions;
+      document.getElementById("modal-project-actions").innerHTML = text.actions.map(step => `<li>${step}</li>`).join("");
+
+      document.getElementById("modal-lbl-outcome").textContent = ui.modalOutcome;
+      document.getElementById("modal-project-outcome").textContent = text.outcome;
+
+      document.getElementById("modal-lbl-tech").textContent = ui.modalTech;
+      document.getElementById("modal-project-tech").innerHTML = project.tech.map(tag => `<span class="tech-pill">${tag}</span>`).join("");
+
+      const linksEl = document.getElementById("modal-project-links");
+      linksEl.innerHTML = project.links.map(link => {
+        const label = currentLang === "th" ? link.labelTh : link.labelEn;
+        if (link.href && link.href.trim() !== "") {
+          return `<a href="${link.href}" class="btn-primary" target="_blank" rel="noopener noreferrer">${label}</a>`;
+        }
+        return `<span class="btn-secondary" style="opacity: 0.7; cursor: default;" title="${ui.modalLinkPending}">${label}</span>`;
+      }).join("");
+
+      modalEl.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeProjectModal() {
+      openModalProjectId = null;
+      modalEl.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("modal-close-btn").addEventListener("click", closeProjectModal);
+    modalEl.addEventListener("click", (event) => {
+      if (event.target === modalEl) closeProjectModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modalEl.classList.contains("open")) {
+        closeProjectModal();
+      }
+    });
+
+    /* ========================
+       YOUTUBE MUSIC DRAWER
+       ======================== */
+    function loadSavedSongs() {
+      try {
+        const raw = localStorage.getItem(MUSIC_STORAGE_KEY);
+        if (!raw) return [...DEFAULT_SONGS];
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      } catch (err) {
+        return [...DEFAULT_SONGS];
+      }
+      return [...DEFAULT_SONGS];
+    }
+
+    function saveSongs(songs) {
+      try {
+        localStorage.setItem(MUSIC_STORAGE_KEY, JSON.stringify(songs));
+      } catch (err) {
+        /* Ignore storage quota errors cleanly */
+      }
+    }
+
+    function extractYoutubeId(input) {
+      const cleaned = input.trim();
+      if (/^[a-zA-Z0-9_-]{11}$/.test(cleaned)) return cleaned;
+      const patterns = [
+        /[?&]v=([a-zA-Z0-9_-]{11})/,
+        /youtu\.be\/([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/
+      ];
+      for (const regex of patterns) {
+        const match = cleaned.match(regex);
+        if (match && match[1]) return match[1];
+      }
+      return null;
+    }
+
+    let playlistSongs = loadSavedSongs();
+    let activeSongIndex = 0;
+
+    function renderMusicDrawerText() {
+      const ui = PORTFOLIO_DATA.ui[currentLang];
+      const drawer = document.getElementById("music-drawer");
+      const pinBtn = document.getElementById("music-pin-btn");
+      const isPinned = drawer.classList.contains("pinned");
+
+      document.getElementById("music-panel-title").textContent = ui.musicTitle;
+      pinBtn.textContent = isPinned ? ui.musicUnpin : ui.musicPin;
+      pinBtn.setAttribute("aria-pressed", String(isPinned));
+      document.getElementById("song-title-input").placeholder = ui.musicTitlePlaceholder;
+      document.getElementById("song-url-input").placeholder = ui.musicUrlPlaceholder;
+      document.getElementById("add-song-btn").textContent = ui.musicAddBtn;
+
+      const currentSong = playlistSongs[activeSongIndex] || playlistSongs[0];
+      if (currentSong) {
+        document.getElementById("music-now-playing").textContent = `${ui.musicNowPrefix}${currentSong.title}`;
+      }
+    }
+
+    function renderMusicPlayer(shouldReloadIframe) {
+      if (activeSongIndex >= playlistSongs.length) activeSongIndex = 0;
+      const currentSong = playlistSongs[activeSongIndex];
+      const iframe = document.getElementById("yt-player-iframe");
+
+      if (shouldReloadIframe && currentSong) {
+        iframe.src = `https://www.youtube-nocookie.com/embed/${currentSong.youtubeId}?rel=0`;
+      }
+
+      renderMusicDrawerText();
+
+      const listEl = document.getElementById("song-list");
+      listEl.innerHTML = playlistSongs.map((song, idx) => `
+        <li class="song-row ${idx === activeSongIndex ? "active" : ""}">
+          <button type="button" class="song-play-btn" data-song-index="${idx}" title="${song.title}">
+            ${idx + 1}. ${song.title}
+          </button>
+          <button type="button" class="song-del-btn" data-delete-index="${idx}" aria-label="Remove song">&times;</button>
+        </li>
+      `).join("");
+
+      listEl.querySelectorAll(".song-play-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeSongIndex = Number(btn.dataset.songIndex);
+          renderMusicPlayer(true);
+        });
+      });
+
+      listEl.querySelectorAll(".song-del-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const ui = PORTFOLIO_DATA.ui[currentLang];
+          const msgEl = document.getElementById("add-song-msg");
+          if (playlistSongs.length <= 1) {
+            msgEl.textContent = ui.musicErrMinOne;
+            return;
+          }
+          msgEl.textContent = "";
+          const delIdx = Number(btn.dataset.deleteIndex);
+          playlistSongs.splice(delIdx, 1);
+          if (activeSongIndex >= playlistSongs.length) activeSongIndex = 0;
+          saveSongs(playlistSongs);
+          renderMusicPlayer(true);
+        });
+      });
+    }
+
+    document.getElementById("add-song-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const titleInput = document.getElementById("song-title-input");
+      const urlInput = document.getElementById("song-url-input");
+      const msgEl = document.getElementById("add-song-msg");
+      const ui = PORTFOLIO_DATA.ui[currentLang];
+
+      const videoId = extractYoutubeId(urlInput.value);
+      if (!videoId) {
+        msgEl.textContent = ui.musicErrInvalid;
+        return;
+      }
+
+      msgEl.textContent = "";
+      const songTitle = titleInput.value.trim() || `YouTube (${videoId})`;
+      playlistSongs.push({ title: songTitle, youtubeId: videoId });
+      activeSongIndex = playlistSongs.length - 1;
+      saveSongs(playlistSongs);
+      titleInput.value = "";
+      urlInput.value = "";
+      renderMusicPlayer(true);
+    });
+
+    function toggleMusicPin() {
+      const drawer = document.getElementById("music-drawer");
+      drawer.classList.toggle("pinned");
+      renderMusicDrawerText();
+    }
+
+    document.getElementById("music-pin-btn").addEventListener("click", toggleMusicPin);
+    document.getElementById("music-drawer-tab").addEventListener("click", toggleMusicPin);
+
+    /* ========================
+       LANGUAGE SWITCH & CONTROLS
+       ======================== */
+    function renderAll() {
+      document.getElementById("btn-lang-th").setAttribute("aria-pressed", String(currentLang === "th"));
+      document.getElementById("btn-lang-en").setAttribute("aria-pressed", String(currentLang === "en"));
+      renderNavigation();
+      renderHero();
+      renderProjects();
+      renderSkills();
+      renderAboutAndEducation();
+      renderContactAndFooter();
+      renderMusicDrawerText();
+      if (openModalProjectId) openProjectModal(openModalProjectId);
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      try {
+        localStorage.setItem(LANG_STORAGE_KEY, lang);
+      } catch (err) {
+        /* Ignore storage errors */
+      }
+      renderAll();
+    }
+
+    document.getElementById("btn-lang-th").addEventListener("click", () => setLanguage("th"));
+    document.getElementById("btn-lang-en").addEventListener("click", () => setLanguage("en"));
+    document.getElementById("btn-print-page").addEventListener("click", () => window.print());
+
+    document.getElementById("mobile-menu-btn").addEventListener("click", () => {
+      const panel = document.getElementById("mobile-nav-panel");
+      const btn = document.getElementById("mobile-menu-btn");
+      const isOpen = panel.classList.toggle("open");
+      btn.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    /* Initial Boot */
+    renderAll();
+    renderMusicPlayer(true);
+  </script>
+</body>
+</html>

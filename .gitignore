@@ -1,0 +1,44 @@
+# Read-only junction directories pointing to local app data/tokens (HARD RULE 8)
+Claude-AppData/
+Gemini-App/
+Gemini-AppData/
+Gemini-Config/
+
+# Internal assistant workspace rules, memory, and docs (keep private/local)
+AGENTS.md
+CLAUDE.md
+PERSONAL_ASSISTANT_AGENT_BRIEF.md
+PROJECT_MEMORY.md
+BACKLOG.md
+CHANGELOG.md
+DECISIONS.md
+SOURCES.md
+.agents/
+domains/
+projects/
+_archive/
+
+# Local shortcuts & IDE workspace files
+Gemini.lnk
+*.code-workspace
+
+# Backups & soft-deleted files
+.backups/
+_to_delete/
+
+# Secrets & environment variables (HARD RULE 6)
+.env
+.env.*
+!.env.example
+
+# Dependencies & build outputs
+node_modules/
+dist/
+build/
+.vercel/
+
+# OS & logs
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
